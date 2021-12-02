@@ -12,6 +12,7 @@ describe('CookbookCli', () => {
   });
 
   describe('Listing recipes', () => {
+    const cookbook = new Cookbook();
     test('should display the correct message listing all of the recipe names', () => {
       const cookbookCli = new CookbookCli(cookbook);
       cookbookCli.add('tacos', ['guisado', 'tortilla', 'salsa']);
@@ -24,12 +25,17 @@ describe('CookbookCli', () => {
   });
 
   describe('Retrieving a recipe', () => {
+    const cookbook = new Cookbook();
     test('should display the ingredients required to make the specified recipe', () => {
-
+      const cookbookCli = new CookbookCli(cookbook);
+      cookbookCli.add('tacos', ['guisado', 'tortilla', 'salsa']);
+      const message = cookbookCli.get('tacos');
+      expect(message).toBe(`The ingredients for tacos are: guisado,tortilla,salsa`);
     });
   });
 
   describe('Deleting a recipe', () => {
+    const cookbook = new Cookbook();
     test('should accept the recipe name and display the correct message', () => {
 
     });
