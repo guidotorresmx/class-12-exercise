@@ -13,6 +13,12 @@ describe('CookbookCli', () => {
 
   describe('Listing recipes', () => {
     test('should display the correct message listing all of the recipe names', () => {
+      const cookbookCli = new CookbookCli(cookbook);
+      cookbookCli.add('tacos', ['guisado', 'tortilla', 'salsa']);
+      cookbookCli.add('omelette', ['œufs', 'fromage', 'lait']);
+      cookbookCli.add('Hamburger', ['meat', 'bread', 'chesse']);
+      const message = cookbookCli.list();
+      expect(message).toBe(`You have the following recipes: tacos,omelette,Hamburger`);
 
     });
   });
