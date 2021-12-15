@@ -11,7 +11,9 @@ describe('Cookbook', () => {
 
   describe('Listing recipes', () => {
     test('should allow the recipes to be listed', () => {
-
+      const cookbook = new Cookbook();
+      cookbook.addRecipe('torta', ['bolillo', 'meat', 'vegetables']);
+      expect(cookbook.listRecipes()).toEqual(['torta']);
     });
   });
 
