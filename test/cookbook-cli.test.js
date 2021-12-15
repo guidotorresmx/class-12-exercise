@@ -36,8 +36,11 @@ describe('CookbookCli', () => {
 
   describe('Deleting a recipe', () => {
     const cookbook = new Cookbook();
-    test('should accept the recipe name and display the correct message', () => {
-
+    test('should accept the recipe name, delete it and display the correct message', () => {
+      const cookbookCli = new CookbookCli(cookbook);
+      cookbookCli.add('tacos', ['guisado', 'tortilla', 'salsa']);
+      const message = cookbookCli.remove('tacos');
+      expect(message).toBe(`Successfully removed the following recipe: tacos`);
     });
   });
 });
