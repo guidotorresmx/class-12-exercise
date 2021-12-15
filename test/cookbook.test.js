@@ -19,7 +19,9 @@ describe('Cookbook', () => {
 
   describe('Retrieving a recipe', () => {
     test('should allow the ingredients for a recipe to be retrieved', () => {
-
+      const cookbook = new Cookbook();
+      cookbook.addRecipe('tacos', ['tortilla', 'meat', 'cheese']);
+      expect(cookbook.getRecipe('tacos')).toEqual(['tortilla', 'meat', 'cheese']);
     });
   });
 
